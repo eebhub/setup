@@ -1,27 +1,29 @@
-#Move the the htdocs root
+# move to node app parent
 cd ~/
-#Rename the old folder
-mv platform "Archive_`date +%B``date +%d``date +%y`"
 
-#git clone in the new one
+# CLONE new code
 git clone https://github.com/eebhub/platform.git
 
-#move to platform
+# move to platform.git created folder
 cd platform
 
-#update the application if necessary
+# UPDATE node packages
 sudo npm update
 
-#Move the the htdocs root
+# STOP the existing node server & app
+forever stop 0
+
+# move to node app parent
 cd ~/
 
-#Stop the Existing server
-forever stop
+# RENAME OLD app folder to archive
+mv platform-live "archive_`date +%Y`-`date +%m`-`date +%d`"
 
-#move to platform
-cd platform
+# RENAME NEW app folder to live
+mv platform platform-live
 
-#Start the app
+# move to app folder live
+cd platform-live
+
+# START the new node server & app
 forever start app.js
-
-
