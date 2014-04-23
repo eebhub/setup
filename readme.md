@@ -1,4 +1,4 @@
-#Readme
+#DevOps for Simulation Platform
 ___
 
 This is the setup shell files for EEBHub Simulation Platform.
